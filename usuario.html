@@ -6,6 +6,9 @@
     <link href="assets/bootstrap/bootstrap.min.css" rel="stylesheet">
     <!-- Incluir Font Awesome para los iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/materialdesignicons.css">
+    <link rel="stylesheet" href="assets/css/styleA.css">
     <style>
         body, html {
             height: 100%;
@@ -53,7 +56,7 @@
             left: 20px;
             display: flex;
             align-items: center;
-            z-index: 1000; 
+            z-index: 1000;
         }
 
         .btn-back i {
@@ -139,6 +142,123 @@
             border-bottom-color: #007bff;
         }
 
+        /* Menú desplegable */
+        .input-group {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            width: 100%;
+        }
+
+        .dropdown-menu.show {
+            display: block;
+        }
+
+        .dropdown-item {
+            padding: 8px 12px;
+            color: #333;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f0f0f0;
+        }
+
+        .btn-dropdown {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        .form-control {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            flex: 1;
+        }
+
+        .form-control:focus {
+            border-color: #007bff;
+        }
+
+        /* Estilo para el menú desplegable */
+        #dropdownMenu {
+            display: none;
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.692); /* Fondo blanco con 90% de opacidad */
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            z-index: 1000; /* Asegura que esté encima de otros elementos */
+            width: 250px;
+        }
+
+        #dropdownMenu.show {
+            display: block;
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 8px 16px;
+            color: #333;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        /* Estilo para el modal */
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            z-index: 1000; /* Se coloca encima de otros elementos */
+        }
+
+        #modal {
+            height: 500px;
+            width: 1000px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 1001; /* Se coloca encima del overlay */
+        }
+        #closeModalUsuario {
+            position: absolute; /* Posiciona el ícono de cerrar */
+            top: 20px; /* Ajusta la distancia desde la parte superior */
+            right: 20px; /* Ajusta la distancia desde el lado derecho */
+            font-size: 24px; /* Tamaño del ícono */
+            color: white; /* Color del ícono */
+            cursor: pointer; /* Muestra un cursor de puntero al pasar sobre el ícono */
+            z-index: 10000; /* Asegura que el ícono esté encima de otros elementos */
+        }
         @media (max-width: 768px) {
             .left-side {
                 display: none;
@@ -175,24 +295,66 @@
 <div class="contenidoUsuario">
     <div class="left-side"></div>
     <div class="right-side">
-        <button onclick="history.back()" class="btn-back">
+        <button class="btn-back" id="btn-inicio">
             <i class="fas fa-arrow-left"></i>
         </button>
+        <div id="overlay"></div>
+        <div id="modal" style="display: none; background-color: transparent;">
+            <i class="fas fa-xmark" id="closeModalUsuario"></i>
+            <div class="bg-overlay"></div>
+            <div class="container align-items-center px-5 h-screen z-1 relative">
+                <div class="shadow bg-indigo-950 d-flex flex-column form-layout">
+                    <div class="d-flex justify-content-center mb-4">
+                        <a class='d-flex align-items-center gap-x-1' href='/'>
+                            <h1 class="text-uppercase text-white font-bold text-2xl mb-0">Authlab</h1>
+                        </a>
+                    </div>
+                    <div class="d-flex flex-column flex-1 justify-content-center">
+                        <div class="success-icon text-center mb-3">
+                            <i class="mdi mdi-shield-key-outline"></i>
+                            <h2 class="text-2xl text-white">Verificar su telefono</h2>
+                            <h3 class="text-gray-200 text-sm">Ingrese los 6 dígitos enviados a su número de celular</h3>
+                        </div>
+                        <form id="verification-form">
+                            <div class="row">
+                                <div class="col-2"><input type="text" class="form-control form-control-lg text-center border-0" maxlength="1" id="digit1-input"></div>
+                                <div class="col-2"><input type="text" class="form-control form-control-lg text-center border-0" maxlength="1" id="digit2-input"></div>
+                                <div class="col-2"><input type="text" class="form-control form-control-lg text-center border-0" maxlength="1" id="digit3-input"></div>
+                                <div class="col-2"><input type="text" class="form-control form-control-lg text-center border-0" maxlength="1" id="digit4-input"></div>
+                                <div class="col-2"><input type="text" class="form-control form-control-lg text-center border-0" maxlength="1" id="digit5-input"></div>
+                                <div class="col-2"><input type="text" class="form-control form-control-lg text-center border-0" maxlength="1" id="digit6-input"></div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <button type="button" class="btn btn-primary w-full" id="closeModal">Confirmar</button>
+                            </div>
+                        </form>
+                        <div class="d-flex align-items-center justify-content-center gap-x-4 mt-4">
+                            <div class="d-flex align-items-center gap-x-4">
+                                <p class="text-sm mb-0 text-white">Didn't receive a code?</p>
+                                <a href="#" class="text-sm no-underline text-cyan-400 hover:text-cyan-500">Resend</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="recaptcha-container" style="display: none;"></div>
+        <div id="recaptcha-container"></div>
         <div class="login-register-form">
             <div class="containerText">
                 <p><b>Get more things done with Loggin platform</b></p>
-                <p>Acces to the most powerfull tool in the entire design and web industry</p>                
+                <p>Acces to the most powerfull tool in the entire design and web industry</p>
             </div>
             <div class="tabs">
                 <a href="#" id="login-tab" class="active">Login</a>
                 <a href="#" id="register-tab">Register</a>
             </div>
-            <div id="login-form">
+            <form id="login-form">
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="E-mail Address">
+                    <input id="email" type="email" class="form-control" placeholder="E-mail Address">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password">
+                    <input id="password" type="password" class="form-control" placeholder="Password">
                 </div>
                 <button class="btn btn-primary">Login</button>
                 <div class="form-text">
@@ -203,44 +365,96 @@
                     <a href="#">Google</a>
                     <a href="#">LinkedIn</a>
                 </div>
-            </div>
-            <div id="register-form" style="display: none;">
+            </form>
+            <form id="register-form" style="display: none;">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="First Name">
+                    <input id="nombres" type="text" class="form-control" placeholder="Nombres">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Last Name">
+                    <input id="apellidos" type="text" class="form-control" placeholder="Apellidos">
                 </div>
                 <div class="form-group">
-                    <input type="tel" class="form-control" placeholder="Phone">
+                    <div class="input-group">
+                        <button type="button" id="dropdownButton" class="btn btn-secondary">
+                            Select Country Code
+                            <i class="fas fa-chevron-down ml-2"></i>
+                        </button>
+                        <div id="dropdownMenu" class="dropdown-menu">
+                            <a href="#" class="dropdown-item" data-prefix="+57">Colombia (+57)</a>
+                            <a href="#" class="dropdown-item" data-prefix="+504">Honduras (+504)</a>
+                            <a href="#" class="dropdown-item" data-prefix="+1">República Dominicana (+1)</a>
+                        </div>
+                        <input id="celular" type="tel" class="form-control" placeholder="Celular">
+                    </div>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Address">
+                    <input id="correo" type="email" class="form-control" placeholder="Correo">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password">
+                    <input id="contraseña" type="password" class="form-control" placeholder="Contraseña">
                 </div>
-                <button class="btn btn-primary">Register</button>
-            </div>
+                <button class="btn btn-primary" id="openModal">Register</button>
+            </form>
+            <form id="register-form" style="display: none;">
+                <div class="form-group">
+                    <input id="nombres" type="text" class="form-control" placeholder="Nombres">
+                </div>
+                <div class="form-group">
+                    <input id="apellidos" type="text" class="form-control" placeholder="Apellidos">
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <button id="dropdownButton" class="btn-dropdown">Select Country Code</button>
+                        <div id="dropdownMenu" class="dropdown-menu">
+                            <a href="#" class="dropdown-item" data-prefix="+57">Colombia (+57)</a>
+                            <a href="#" class="dropdown-item" data-prefix="+504">Honduras (+504)</a>
+                            <a href="#" class="dropdown-item" data-prefix="+1">República Dominicana (+1)</a>
+                        </div>
+                        <input id="celular" type="tel" class="form-control" placeholder="Celular">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input id="correo" type="email" class="form-control" placeholder="Correo">
+                </div>
+                <div class="form-group">
+                    <input id="contraseña" type="password" class="form-control" placeholder="Contraseña">
+                </div>
+                <button class="btn btn-primary" id="openModal">Register</button>
+            </form>
         </div>
     </div>
 </div>
 
 <script>
-    document.getElementById('login-tab').addEventListener('click', function() {
-        document.getElementById('login-form').style.display = 'block';
-        document.getElementById('register-form').style.display = 'none';
-        this.classList.add('active');
-        document.getElementById('register-tab').classList.remove('active');
-    });
+    document.addEventListener('DOMContentLoaded', function() {
+        const dropdownButton = document.getElementById('dropdownButton');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+        const input = document.getElementById('celular');
 
-    document.getElementById('register-tab').addEventListener('click', function() {
-        document.getElementById('login-form').style.display = 'none';
-        document.getElementById('register-form').style.display = 'block';
-        this.classList.add('active');
-        document.getElementById('login-tab').classList.remove('active');
+        dropdownButton.addEventListener('click', function() {
+            // Toggle the dropdown menu visibility
+            dropdownMenu.classList.toggle('show');
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                dropdownMenu.classList.remove('show');
+            }
+        });
+
+        const dropdownItems = dropdownMenu.querySelectorAll('.dropdown-item');
+
+        dropdownItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const prefix = this.getAttribute('data-prefix');
+                input.value = prefix + ' '; // Add the prefix and a space
+                dropdownMenu.classList.remove('show');
+            });
+        });
     });
 </script>
+<script type="module" src="assets/js/index.js"></script>
+
 
 </body>
 </html>

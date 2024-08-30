@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago de Lotería</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .pago-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .pago-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .boton-pagar {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .boton-pagar:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="pago-container">
+        <h2>Pagar Lotería</h2>
+        <div class="form-group">
+            <label for="numeros-loteria">Números de la Lotería</label>
+            <input type="text" id="numeros-loteria" maxlength="4" pattern="\d{4}" placeholder="Ingrese 4 números" required>
+        </div>
+        <div class="form-group">
+            <label for="monto">Monto a Pagar</label>
+            <input type="number" id="monto" placeholder="Ingrese el monto" min="1" required>
+        </div>
+        <div class="form-group">
+            <label for="metodo-pago">Método de Pago</label>
+            <select id="metodo-pago" required>
+                <option value="" disabled selected>Seleccione un método de pago</option>
+                <option value="efectivo">Efectivo</option>
+                <option value="transferencia">Transferencia Bancaria</option>
+            </select>
+        </div>
+        <button class="boton-pagar" onclick="procesarPago()">Pagar</button>
+        <div id="mensaje-confirmacion"></div>
+    </div>
+
+    <script>
+        function procesarPago() {
+            const numerosLoteria = document.getElementById('numeros-loteria').value;
+            const monto = document.getElementById('monto').value;
+            const metodoPago = document.getElementById('metodo-pago').value;
+
+            if (numerosLoteria.length === 4 && monto > 0 && metodoPago) {
+                // Aquí se procesa el pago (o más bien, se registra la orden para un pago futuro)
+                const mensaje = `Has seleccionado pagar ${monto} por la lotería con los números ${numerosLoteria} usando ${metodoPago}.`;
+                document.getElementById('mensaje-confirmacion').textContent = mensaje;
+
+                // Aquí puedes guardar la orden en Firebase Firestore
+                registrarPago(numerosLoteria, monto, metodoPago);
+            } else {
+                alert("Por favor, complete todos los campos correctamente.");
+            }
+        }
+
+        function registrarPago(numerosLoteria, monto, metodoPago) {
+            // Asumiendo que Firebase ya está configurado
+            const db = firebase.firestore();
+
+            db.collection("pagos").add({
+                numerosLoteria: numerosLoteria,
+                monto: monto,
+                metodoPago: metodoPago,
+                fecha: new Date()
+            })
+            .then(() => {
+                console.log("Pago registrado exitosamente!");
+            })
+            .catch((error) => {
+                console.error("Error al registrar el pago: ", error);
+            });
+        }
+    </script>
+</body>
+</html>

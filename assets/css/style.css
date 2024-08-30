@@ -1948,12 +1948,3 @@ header{
 .contact_client_logos_section {
     padding-top: 0;
 }
-
-#div-usuario{
-    height: 100vh; /* 100% de la altura de la vista */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color:#0d0d15;
-}
-

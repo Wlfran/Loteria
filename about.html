@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="sp">
 
 <head>
-    <title>About | Immersive-AI</title>
+    <title>Nosotros | Números de los sorteos de las loterías generados por inteligencia artificial</title>
     <!-- /SEO Ultimate -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <meta charset="utf-8">
-    <link rel="apple-touch-icon" sizes="57x57" href="./assets/images/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="./assets/images/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="./assets/images/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="./assets/images/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="./assets/images/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="./assets/images/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="./assets/images/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="./assets/images/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="./assets/images/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="./assets/images/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="./assets/images/favicon/apple-icon-57x57.webp">
+    <link rel="apple-touch-icon" sizes="60x60" href="./assets/images/favicon/apple-icon-60x60.webp">
+    <link rel="apple-touch-icon" sizes="72x72" href="./assets/images/favicon/apple-icon-72x72.webp">
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/images/favicon/apple-icon-76x76.webp">
+    <link rel="apple-touch-icon" sizes="114x114" href="./assets/images/favicon/apple-icon-114x114.webp">
+    <link rel="apple-touch-icon" sizes="120x120" href="./assets/images/favicon/apple-icon-120x120.webp">
+    <link rel="apple-touch-icon" sizes="144x144" href="./assets/images/favicon/apple-icon-144x144.webp">
+    <link rel="apple-touch-icon" sizes="152x152" href="./assets/images/favicon/apple-icon-152x152.webp">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/favicon/apple-icon-180x180.webp">
+    <link rel="icon" type="image/png" sizes="192x192"  href="./assets/images/favicon/android-icon-192x192.webp">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon/favicon-32x32.webp">
+    <link rel="icon" type="image/png" sizes="96x96" href="./assets/images/favicon/favicon-96x96.webp">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon/favicon-16x16.webp">
     <link rel="manifest" href="./assets/images/favicon/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.webp">
     <meta name="theme-color" content="#ffffff">
     <!-- Latest compiled and minified CSS -->
     <link href="assets/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -35,6 +35,67 @@
     <link href="assets/css/owl.theme.default.min.css" rel="stylesheet" type="text/css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css">
+    <style>
+        .loteria-container {
+            display: flex;
+            align-items: center;
+            background-color: #6c4a7d;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            width: auto;
+            box-sizing: border-box; 
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .numero-loteria {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            color: black;
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            margin: 0 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+                }
+        .serie-loteria {
+            margin-left: 10px;
+            background-color: white;
+            padding: 10px;
+            border-radius: 10px;
+            font-weight: bold;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .containerLoteriaAll{
+            justify-content: space-between;
+            align-items: center;
+            height: auto; 
+            width: 900px;
+            margin: auto;
+            background-color: #ffff; 
+            padding: 60px 30px 30px 30px;
+            border-radius: 30px;
+        }
+        .nombre-loteria{
+            width: 400px;
+            align-items: center;
+            justify-content: center;
+        }
+        .contenidoLoteria{
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Esto asegura que el nombre esté a la izquierda y el div morado a la derecha */
+            width: 100%;
+            margin-top: 20px; /* Ajusta según tus necesidades */
+        }
+        
+    </style>
 </head>
 
 <body>
@@ -42,7 +103,7 @@
     <header>
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="./index.html"><figure class="mb-0"><img src="./assets/images/immersive-ai_logo.png" alt="" class="img-fluid"></figure></a>
+                <a class="navbar-brand" href="./index.html" title="Inicio"><figure class="mb-0"><img src="./assets/images/numeroya.webp" alt="Logo numeroya" class="img-fluid"></figure></a>
                 <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 <span class="navbar-toggler-icon"></span>
@@ -51,72 +112,21 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link" href="./index.html">Inicio</a>
+                            <a class="nav-link" href="./index.html" title="Inicio">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./about.html">Nosotros</a>
+                            <a class="nav-link" href="./about.html" title="Nosotros">Nosotros</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./services.html">Servicios</a>
-                            <div class="dropdown-menu drop-down-content">
-                                <ul class="list-unstyled drop-down-pages">
-                                    <li class="nav-item">
-                                        <a class="dropdown-item nav-link" href="./faqs.html">Eliga tu pais </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="dropdown-item nav-link" href="colombia.html">Colombia</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="dropdown-item nav-link" href="hondura.html">Hondura </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="dropdown-item nav-link" href="rpDominicana.html">Republica Dominicana</a>
-                                    </li>
-                                </ul>
-                            </div>
+                            <a class="nav-link" href="./services.html" title="Servicios">Servicios</a>
                         </li>
-                        <!--
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false"> Pages </a>
-                            <div class="dropdown-menu drop-down-content">
-                                <ul class="list-unstyled drop-down-pages">
-                                    <li class="nav-item">
-                                        <a class="dropdown-item nav-link" href="./faqs.html">FAQ's</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="dropdown-item nav-link" href="./projects.html">Projects</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="dropdown-item nav-link" href="./team.html">Our Team</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                          -->
                         <li class="nav-item">
-                            <a class="nav-link" href="./contact.html">Contactos</a>
+                            <a class="nav-link" href="./contact.html" title="Contactos">Contactos</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link talk_btn" href="./contact.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false" >Generar Numeros <i class="fa-solid fa-angle-right"></i></a>
-                            <div class="dropdown-menu drop-down-content">
-                                <ul class="list-unstyled drop-down-pages">
-                                    <li class="nav-item">
-                                        <a class="dropdown-item nav-link" href="./faqs.html">Eliga tu pais </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="dropdown-item nav-link" href="colombia.html">Colombia</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="dropdown-item nav-link" href="hondura.html">Honduras </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="dropdown-item nav-link" href="rpDominicana.html">Republica Dominicana</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
+                            <a class="nav-link talk_btn" href="./usuario.html" id="navbarDropdown" role="button" aria-haspopup="true"
+                               aria-expanded="false" title="Iniciar Sesión">Iniciar Sesión <i class="fa-solid fa-angle-right"></i></a>
+                        </li>                        
                     </ul>
                 </div>
             </nav>
@@ -128,20 +138,21 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="banner-section-content">
-                        <h1 class="text-white" data-aos="fade-up">About Us</h1>
-                        <p class="text-white" data-aos="fade-right">Ruis autem vel eum iure reprehender esse ruam nihil molestiae.</p>
+                        <h1 class="text-white" data-aos="fade-up">Nosotros</h1>
+                        <p class="text-white" data-aos="fade-right">Números de los sorteos de las loterías generados por inteligencia artificial.</p>
                         <div class="btn_wrapper" data-aos="fade-up">
-                            <span> Home </span><i class="fa-solid fa-angles-right" aria-hidden="true"></i><span class="sub_span">About</span>
+                            <a class="text-decoration-none default-btn btn-size-18 hover-effect readmore_btn" href="./usuario.html" title="Iniciar Sesión">Iniciar Sesión<i class="fa-solid fa-angle-right"></i></a>
+                            <a class="text-decoration-none default-btn-two btn-size-18 hover-effect" href="./usuario.html" title="Registrase">Registrase<i class="fa-solid fa-angle-right"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="banner_image position-relative">
                         <figure class="banner_main_image mb-0 left_right_shape">
-                            <img src="./assets/images/about_banner_image.jpg" alt="">
+                            <img src="./assets/images/about_banner_image.webp" alt="about banner image">
                         </figure>
                         <figure class="banner_image_bottom_shape mb-0 position-absolute top_bottom_shape">
-                            <img src="./assets/images/sub_banner_image_bottom_shape.png" alt="" class="img-fluid">
+                            <img src="./assets/images/sub_banner_image_bottom_shape.webp" alt="baner Números de los sorteos de las loterías generados por inteligencia artificial" class="img-fluid">
                         </figure>
                     </div>
                 </div>
@@ -149,10 +160,10 @@
         </div>
     </section>
     <figure class="banner_top_shape mb-0 position-absolute top_bottom_shape">
-        <img src="./assets/images/sub_banner_top_shape.png" alt="" class="img-fluid">
+        <img src="./assets/images/sub_banner_top_shape.webp" alt="sub banner top shape" class="img-fluid">
     </figure>
     <figure class="banner_background_shape mb-0 position-absolute left_right_shape">
-        <img src="./assets/images/sub_banner_background_shape.png" alt="">
+        <img src="./assets/images/sub_banner_background_shape.webp" alt="sub banner background shape">
     </figure>
 </div>
 <!-- ABOUT US SECTION -->
@@ -161,27 +172,34 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="aboutus_content" data-aos="fade-up">
-                    <h6>About US</h6>
-                    <h2>Creating Intelligent Solutions With AI And Robotics</h2>
-                    <p>Consectetur adipiscing elit sed do eiusmod tempor inlabore aet dolore magna aliqua ruis ipsum ultrices rav sit ame incididun zerasreiciendis maiores alias.</p>
+                    <h6>Nosotros</h6>
+                    <h2>Genara los números de las loterías y gana hoy mismo</h2>
+                    <p>Genara los números de las loterías con IA. somos un sistema basado en inteligencia artificial que genera los números ganadores de las loterías.</p>
                     <div class="btn_wrapper"> 
-                        <a class="text-decoration-none default-btn btn-size-18 hover-effect" href="./about.html">Get Started<i class="fa-solid fa-angle-right"></i></a>
+                        <a class="text-decoration-none default-btn btn-size-18 hover-effect" href="./about.html" title="Iniciar Sesión">Iniciar Sesión <i class="fa-solid fa-angle-right"></i></a>
                     </div>
-                    <div class="position-relative">
-                        <a href="https://www.youtube.com/ENVATO" target="_blank">
-                            <figure class="video_fig mb-0">
-                                <img class="thumb img-fluid" style="cursor: pointer" src="assets/images/about_aboutus_video_image.jpg" alt="">
-                            </figure>
-                        </a>
-                        <figure class="about_video_background_shape mb-0 position-absolute left_right_shape">
-                            <img src="assets/images/video_background_shape.png" alt="" class="img-fluid">
-                        </figure>
+                    <div class="containerLoteriaAll">
+                        <div class="contenidoLoteria">
+                            <div class="nombre-loteria">
+                                <h3>Loteria Dorado</h3>
+                                <p></p>
+                            </div>
+                            <div class="loteria-container" id="loteriaContainer"></div>
+                        </div>
+                        <div class="contenidoLoteria">
+                            <div class="nombre-loteria">
+                                <h3>Loteria Dorado</h3>
+                                <p></p>
+                            </div>
+                            <div class="loteria-container" id="loteriaContainer"></div>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
         </div>
         <figure class="aboutus_right_shape mb-0 position-absolute top_bottom_shape">
-            <img src="./assets/images/aboutus_video_right_shape.png" alt="" class="img-fluid">
+            <img src="./assets/images/aboutus_video_right_shape.webp" alt="aboutus video right shape" class="img-fluid">
         </figure>
     </div>
 </section>
@@ -191,79 +209,50 @@
         <div class="row" data-aos="fade-up">
             <div class="col-lg-3 col-md-12 col-sm-12 col-12">
                 <div class="statistics_content">
-                    <h3 class="mb-0">Empowering The Future With AI.</h3>
+                    <h3 class="mb-0">Genera números con IA.</h3>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                 <div class="statistics_box hover-effect">
                     <div class="span_wrapper">
-                        <span class="number counter">39</span>
+                        <span class="number counter">2</span>
                         <span class="plus">K+</span>
                     </div>
-                    <p class="text-size-16 text-white pp">Project Completed</p>
-                    <p class="text-size-16 mb-0 text">Modi tempora inciun aut labore.</p>
+                    <p class="text-size-16 text-white pp">Loterías</p>
+                    <p class="text-size-16 mb-0 text">Más de 2.000 loterías al rededor del mundo.</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                 <div class="statistics_box hover-effect">
                     <div class="span_wrapper">
-                        <span class="number counter">20</span>
-                        <span class="plus">K+</span>
+                        <span class="number counter">72</span>
+                        <span class="plus"></span>
                     </div>
-                    <p class="text-size-16 text-white pp">Happy Clients</p>
-                    <p class="text-size-16 mb-0 text">Nore tempora inciun aut labore.</p>
+                    <p class="text-size-16 text-white pp">Paises </p>
+                    <p class="text-size-16 mb-0 text">Generamos números de las loterías en 72 paíse.</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                 <div class="statistics_box hover-effect">
                     <div class="span_wrapper">
-                        <span class="number counter">11</span>
-                        <span class="plus">+</span>
+                        <span class="number counter">2</span>
+                        <span class="plus">M+</span>
                     </div>
-                    <p class="text-size-16 text-white pp">Years of Experience</p>
-                    <p class="text-size-16 mb-0 text">Qome tempora inciun aut labore.</p>
+                    <p class="text-size-16 text-white pp">Ganadores</p>
+                    <p class="text-size-16 mb-0 text">Más de 2 millones de ganadores.</p>
                 </div>
             </div>
         </div>
         <figure class="statistics_left_shape mb-0 position-absolute top_bottom_shape">
-            <img src="./assets/images/statistics_left_shape.png" alt="" class="img-fluid">
+            <img src="./assets/images/statistics_left_shape.webp" alt="statistics left shape" class="img-fluid">
         </figure>
         <figure class="statistics_right_shape mb-0 position-absolute top_bottom_shape">
-            <img src="./assets/images/statistics_right_shape.png" alt="" class="img-fluid">
+            <img src="./assets/images/statistics_right_shape.webp" alt="statistics right shape" class="img-fluid">
         </figure>
     </div>
 </section>
 <!-- MISSION VISION SECTION -->
-<section class="mission_vision_section position-relative">
-    <div class="container">
-        <div class="row position-relative" data-aos="fade-up">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                <div class="mission_vision_box hover-effect">
-                    <figure>
-                        <img src="./assets/images/our_mission_image.png" alt="" class="img-fluid hover-effect">
-                    </figure>
-                    <h4>Our Mission</h4>
-                    <p class="mb-0">Tempora incidunt ut labore et dolore magnam aliruam quaerat volurtatem aut enim ad minima veniam ruis nostrum exercitatio.</p>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                <div class="mission_vision_box hover-effect">
-                    <figure>
-                        <img src="./assets/images/our_vision_image.png" alt="" class="img-fluid hover-effect">
-                    </figure>
-                    <h4>Our Vision</h4>
-                    <p class="mb-0">Quis autem vel eum iure reprehenderit ruin voluta velit esse quam nihil molestiae conseuatur illum aui dolorem eum fugiat ruo.</p>
-                </div>
-            </div>
-            <figure class="mission_vision_background_shape mb-0 position-absolute left_right_shape">
-                <img src="./assets/images/mission_vision_background_shape.png" alt="" class="img-fluid">
-            </figure>
-        </div>
-        <figure class="mission_vision_left_shape mb-0 position-absolute top_bottom_shape">
-            <img src="./assets/images/mission_vision_left_shape.png" alt="" class="img-fluid">
-        </figure>
-    </div>
-</section>
+
 <!-- FEATURES SECTION -->
 <section class="feature_section position-relative">
     <div class="container">
@@ -271,49 +260,34 @@
             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                 <div class="feature_image">
                     <figure class="feature_main_image position-relative mb-0">
-                        <img src="./assets/images/feature_image1.jpg" alt="" class="img-fluid">
+                        <img src="./assets/images/feature_image1.webp" alt="feature image1" class="img-fluid">
                     </figure>
                     <figure class="feature_second_image position-absolute mb-0">
-                        <img src="./assets/images/feature_image2.jpg" alt="" class="img-fluid">
+                        <img src="./assets/images/feature_image2.webp" alt="feature image2" class="img-fluid">
                     </figure>
                 </div>
             </div>
             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                 <div class="feature_content" data-aos="fade-right">
-                    <h6>FEATURES</h6>
-                    <h2>Empowering People By Keeping Them Well</h2>
-                    <p>Consectetur adipiscing elit sed do eiusmod tempor inlabore aet dolore magna aliqua ruis.</p>
-                    <ul class="list-unstyled mb-0">
-                        <li>
-                            <figure class="mb-0">
-                                <img src="./assets/images/certified_expert.png" alt="" class="img-fluid">
-                            </figure>
-                            <div class="feature_content_wrapper">
-                                <p class="first_p">Certified Experts</p>
-                                <p class="text-size-16 mb-0">Dolor sit amet consectetur adipiscing elit, sed do eius.</p>
-                            </div>
-                        </li>
-                        <li class="second_li">
-                            <figure class="mb-0">
-                                <img src="./assets/images/support.png" alt="" class="img-fluid">
-                            </figure>
-                            <div class="feature_content_wrapper">
-                                <p class="first_p">24/7 Support</p>
-                                <p class="text-size-16 mb-0">Sunt in culpa qui officia deserunt mollit anim esa amet.</p>
-                            </div>
-                        </li>
-                    </ul>
+                    <h6>Numeroya</h6>
+                    <h2>Numeroya  Inteligencia artificial</h2>
+                    <p>Numeroya es un servicio innovador que combina la inteligencia artificial avanzada
+                        con un análisis predictivo y estadístico profundo para generar combinaciones de
+                        números con alta probabilidad de éxito en futuros sorteos de lotería. Nuestra
+                        plataforma ofrece múltiples beneficios diseñados para maximizar las posibilidades
+                        de ganar y proporcionar una experiencia de usuario excepcional.</p>
+                    
                     <div class="btn_wrapper"> 
-                        <a class="text-decoration-none default-btn btn-size-18 hover-effect" href="./about.html">Get Started<i class="fa-solid fa-angle-right"></i></a>
+                        <a class="text-decoration-none default-btn btn-size-18 hover-effect" href="./services.html" title="Servicios">Servicios <i class="fa-solid fa-angle-right"></i></a>
                     </div>
                 </div>
             </div>
         </div>
         <figure class="feature_background_shape mb-0 position-absolute left_right_shape">
-            <img src="./assets/images/features_background_shape.jpg" alt="">
+            <img src="./assets/images/features_background_shape.webp" alt="features background shape">
         </figure>
         <figure class="feature_top_shape mb-0 position-absolute top_bottom_shape">
-            <img src="./assets/images/features_top_shape.png" alt="" class="img-fluid">
+            <img src="./assets/images/features_top_shape.webp" alt="features top shape" class="img-fluid">
         </figure>
     </div>
 </section>
@@ -325,8 +299,8 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="heading position-relative text-center">
-                        <h6>FAQ’s</h6>
-                        <h2>Frequently Asked Questions</h2>
+                        <h6>Preguntas</h6>
+                        <h2>Preguntas frecuentes</h2>
                     </div>
                 </div>
             </div>
@@ -338,39 +312,36 @@
                                 <div class="accordion-card">
                                     <div class="card-header" id="headingFour">
                                         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                            Antis unde omnis istye natus error?
+                                            ¿Cómo funciona este sistema de inteligencia artificial para generar los números ganadores de la lotería?
                                         </button>
                                     </div>
                                     <div id="collapseFour" class="collapse" aria-labelledby="headingFour">
                                     <div class="card-body">
-                                        <p class="text-size-16 text-left mb-0 p-0">Quisquam est, qui dolorem ipsum quia dolor sit amet cone aetur
-                                            adipisci velit, sed quia non numquam eius modi temor incidunt aut labore et dolore magnam.</p>
+                                        <p class="text-size-16 text-left mb-0 p-0">El sistema utiliza algoritmos avanzados de aprendizaje automático y análisis de datos históricos para identificar patrones potenciales.</p>
                                     </div>
                                     </div>
                                 </div>
                                 <div class="accordion-card">
                                     <div class="card-header" id="headingFive">
                                         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                            Totam rem aperiam, earue iesa uate?
+                                            ¿Cuáles son las probabilidades de éxito si uso los números generados por este sistema?
                                         </button>
                                     </div>
                                     <div id="collapseFive" class="collapse" aria-labelledby="headingFive">
                                     <div class="card-body">
-                                        <p class="text-size-16 text-left mb-0 p-0">Quisquam est, qui dolorem ipsum quia dolor sit amet cone aetur
-                                            adipisci velit, sed quia non numquam eius modi temor incidunt aut labore et dolore magnam.</p>
+                                        <p class="text-size-16 text-left mb-0 p-0">Las loterías son juegos de azar con una naturaleza inherentemente aleatoria. Por ello, las probabilidades de éxito utilizando los números generados por el sistema son significativamente mejores que las de elegir números al azar.</p>
                                     </div>
                                     </div>
                                 </div>
                                 <div class="accordion-card">
                                     <div class="card-header" id="headingSix">
                                         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                            Integer lobortis sem conseruat seua?
+                                            ¿Puedo usar este sistema de inteligencia artificial en cualquier tipo de lotería
                                         </button>
                                     </div>
                                     <div id="collapseSix" class="collapse" aria-labelledby="headingSix">
                                     <div class="card-body">
-                                        <p class="text-size-16 text-left mb-0 p-0">Quisquam est, qui dolorem ipsum quia dolor sit amet cone aetur
-                                            adipisci velit, sed quia non numquam eius modi temor incidunt aut labore et dolore magnam.</p>
+                                        <p class="text-size-16 text-left mb-0 p-0">El sistema puede ser ajustado para analizar datos de diferentes tipos de loterías.</p>
                                     </div>
                                     </div>
                                 </div>
@@ -385,39 +356,36 @@
                                 <div class="accordion-card">
                                     <div class="card-header" id="headingSeven">
                                         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                                            Quasi sed architecto beatae vitae?
+                                            ¿Hay algún costo asociado con el uso de este sistema para generar números de lotería?
                                         </button>
                                     </div>
                                     <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven">
                                     <div class="card-body">
-                                        <p class="text-size-16 text-left mb-0 p-0">Quisquam est, qui dolorem ipsum quia dolor sit amet cone aetur
-                                            adipisci velit, sed quia non numquam eius modi temor incidunt aut labore et dolore magnam.</p>
+                                        <p class="text-size-16 text-left mb-0 p-0">Sí, existe un costo asociado al uso del sistema, que cubre el análisis de datos y el procesamiento de los algoritmos. Estos costos varían dependiendo del tipo de servicio ofrecido, la frecuencia de uso y la región.</p>
                                     </div>
                                     </div>
                                 </div>
                                 <div class="accordion-card">
                                     <div class="card-header" id="headingEight">
                                         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-                                            Duis lacinia pulvinar turpis lacinia?
+                                            ¿Existen testimonios o estudios que respalden la efectividad de este sistema?
                                         </button>
                                     </div>
                                     <div id="collapseEight" class="collapse" aria-labelledby="headingEight">
                                     <div class="card-body">
-                                        <p class="text-size-16 text-left mb-0 p-0">Quisquam est, qui dolorem ipsum quia dolor sit amet cone aetur
-                                            adipisci velit, sed quia non numquam eius modi temor incidunt aut labore et dolore magnam.</p>
+                                        <p class="text-size-16 text-left mb-0 p-0">Aunque pueden existir casos anecdóticos de éxito, hay estudios científicos concluyentes que demuestren que un sistema de inteligencia artificial pueda prever con precisión los resultados de una lotería debido a su naturaleza aleatoria.</p>
                                     </div>
                                     </div>
                                 </div>
                                 <div class="accordion-card">
                                     <div class="card-header" id="headingNine">
                                         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
-                                            Rutem auibusdam reu aut officiis?
+                                            ¿Es seguro y legal utilizar este sistema para jugar a la lotería?
                                         </button>
                                     </div>
                                     <div id="collapseNine" class="collapse" aria-labelledby="headingNine">
                                     <div class="card-body">
-                                        <p class="text-size-16 text-left mb-0 p-0">Quisquam est, qui dolorem ipsum quia dolor sit amet cone aetur
-                                            adipisci velit, sed quia non numquam eius modi temor incidunt aut labore et dolore magnam.</p>
+                                        <p class="text-size-16 text-left mb-0 p-0">La legalidad de usar un sistema de inteligencia artificial para jugar a la lotería depende de la jurisdicción local. En muchas regiones, el uso de tecnología avanzada para influir en los resultados de la lotería puede estar regulado o incluso prohibido. Además, es vital que los usuarios consideren las implicaciones éticas y legales y revisen las leyes de su región antes de utilizar el sistema.</p>
                                     </div>
                                     </div>
                                 </div>
@@ -428,7 +396,7 @@
             </div>
         </div>
         <figure class="mb-0 faq_right_shape position-absolute top_bottom_shape">
-            <img src="./assets/images/faq_right_shape.png" alt="" class="img-fluid">
+            <img src="./assets/images/faq_right_shape.webp" alt="faq right shape" class="img-fluid">
         </figure>
     </div>
     <!-- CLIENT LOGO'S SECTION -->
@@ -438,27 +406,27 @@
                 <div class="col-lg-1 col-md-1 col-sm-6 col-12 d-md-block d-none"></div>
                 <div class="col-lg-2 col-md-2 col-sm-4 col-6">
                     <figure class="logo_image1 mb-0">
-                        <img src="./assets/images/client_logo_image1.png" alt="" class="img-fluid hover-effect">
+                        <img src="./assets/images/client_logo_image1.webp" alt="client logo image1" class="img-fluid hover-effect">
                     </figure>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-4 col-6">
                     <figure class="logo_image2 mb-0">
-                        <img src="./assets/images/client_logo_image2.png" alt="" class="img-fluid hover-effect">
+                        <img src="./assets/images/client_logo_image2.webp" alt="client logo image2" class="img-fluid hover-effect">
                     </figure>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-4 col-6">
                     <figure class="logo_image3 mb-0">
-                        <img src="./assets/images/client_logo_image3.png" alt="" class="img-fluid hover-effect">
+                        <img src="./assets/images/client_logo_image3.webp" alt="client logo image3" class="img-fluid hover-effect">
                     </figure>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-4 col-6">
                     <figure class="logo_image4 mb-0">
-                        <img src="./assets/images/client_logo_image4.png" alt="" class="img-fluid hover-effect">
+                        <img src="./assets/images/client_logo_image4.webp" alt="client logo image4" class="img-fluid hover-effect">
                     </figure>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-4 col-6">
                     <figure class="logo_image5 mb-0">
-                        <img src="./assets/images/client_logo_image5.png" alt="" class="img-fluid hover-effect">
+                        <img src="./assets/images/client_logo_image5.webp" alt="client logo image5" class="img-fluid hover-effect">
                     </figure>
                 </div>
                 <div class="col-lg-1 col-md-1 col-sm-6 col-12 d-md-block d-none"></div>
@@ -473,23 +441,23 @@
                     <div class="col-lg-5 col-md-5 col-sm-12 col-12 order-md-1 order-2">
                         <div class="get_started_box_image">
                             <figure class="mb-0 left_right_shape">
-                                <img src="./assets/images/get_started_image.png" alt="" class="img-fluid">
+                                <img src="./assets/images/get_started_image.webp" alt="get started image" class="img-fluid">
                             </figure>
                         </div>
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-12 col-12 order-md-2 order-1">
                         <div class="get_started_box_content" data-aos="fade-right">
-                            <h6>GEt Started</h6>
-                            <h2>Let's Make Something Great Together</h2>
+                            <h6>Comenzar</h6>
+                            <h2>Genere los números de las loterías</h2>
                             <div class="btn_wrapper">
-                                <a class="text-decoration-none default-btn-two btn-size-18 hover-effect" href="./contact.html">Contact Us<i class="fa-solid fa-angle-right"></i></a>
+                                <a class="text-decoration-none default-btn-two btn-size-18 hover-effect" href="./contact.html" title="Iniciar Sesión" >Iniciar Sesión<i class="fa-solid fa-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <figure class="get_started_shape mb-0 left_right_shape">
-                <img src="./assets/images/get_started_shape.png" alt="" class="img-fluid">
+                <img src="./assets/images/get_started_shape.webp" alt="get started shape" class="img-fluid">
             </figure>
         </div>
     </div>
@@ -503,57 +471,52 @@
                     <div class="about_col">
                         <a href="./index.html">
                             <figure>
-                                <img src="./assets/images/immersive_footer_logo.png" alt="" class="img-fluid">
+                                <img src="./assets/images/numeroya.webp" alt="logo numeroya" class="img-fluid">
                             </figure>
                         </a>
                         <ul class="list-unstyled mb-0">
                             <li>
-                                <p class="text-size-16">Qorem ipsum dolor sit amet, consectetur adipiscing elit aut elit tellus luctus nec ulla corper mattis aulvinar daibus leo.</p>
+                                <p class="text-size-16">Únete a la revolución de la lotería con inteligencia artificial y empieza a jugar inteligentemente hoy mismo.</p>
                             </li>
-                            <li class="icons hover-effect"><a href="#"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a></li>
-                            <li class="icons hover-effect"><a href="#"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a></li>
-                            <li class="icons hover-effect"><a href="#"><i class="fa-brands fa-linkedin-in mr-0" aria-hidden="true"></i></a></li>
+                            <li class="icons hover-effect"><a href="https://www.facebook.com/numeroyaia" title="facebook" target="_blank" rel="noreferrer noopener" ><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a></li>
+                            <li class="icons hover-effect"><a href="https://www.instagram.com/numeroyaia" title="instagram" target="_blank" rel="noreferrer noopener"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>
+                            <li class="icons hover-effect"><a href="https://www.youtube.com/channel/UCMHUEE6SdwOgPMGypPFxy4g" title="youtube" target="_blank" rel="noreferrer noopener"><i class="fa-brands fa-youtuve-0" aria-hidden="true"></i></a></li>
+                            <li class="icons hover-effect"><a href="https://www.tiktok.com/@numeroyaia?lang=es" title="tiktok" target="_blank" rel="noreferrer noopener"><i class="fa-brands tiktok" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-3 col-xs-12 d-md-block d-none">
                     <div class="links_col">
-                        <h4>Useful Links</h4>
+                        <h4>Menu</h4>
                         <ul class="list-unstyled mb-0">
                             <li>
                                 <span></span>
-                                <a href="./index.html">Home</a>
+                                <a href="./index.html">Inicio</a>
                             </li>
                             <li>
                                 <span></span>
-                                <a href="./about.html">About</a>
+                                <a href="./about.html">Nosotros</a>
                             </li>
                             <li>
                                 <span></span>
-                                <a href="./services.html">Services</a>
+                                <a href="./services.html">Servicios</a>
                             </li>
+                        
                             <li>
                                 <span></span>
-                                <a href="./projects.html">Projects</a>
-                            </li>
-                            <li>
-                                <span></span>
-                                <a href="./contact.html">Contact us</a>
+                                <a href="./contact.html">Contactos</a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-sm-block d-none">
                     <div class="contact_col">
-                        <h4>Contact Us</h4>
+                        <h4>Contactos</h4>
                         <ul class="list-unstyled mb-0">
-                            <li>
-                                <i class="fa-solid fa-phone"></i>
-                                <a href="tel:+61383766284" class="text-decoration-none">+61 3 8376 6284</a>
-                            </li>
+                        
                             <li class="contact_mail">
                                 <i class="fa-sharp fa-solid fa-envelope"></i>
-                                <a href="mailto:Info@immersiveai.com" class="text-decoration-none">Info@immersiveai.com</a>
+                                <a href="mailto:Info@immersiveai.com" class="text-decoration-none">Info@numeroya.com</a>
                             </li>
                             <li class="mb-0">
                                 <i class="fa-solid fa-location-dot location"></i>
@@ -564,7 +527,7 @@
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 col-12 text-sm-left text-center d-lg-block d-none">
                     <div class="footer-info-content">
-                        <h4>Newsletter</h4>
+                        <h4>Preguntas</h4>
                         <input type="email" name="email" id="emailadd" class="form-control" placeholder="Enter Email:">
                         <div class="input-group-append form-button">
                             <button class="btn" name="btnsubmit" id="submitbtn" type="submit"><i class="fa-solid fa-paper-plane"></i></button>
@@ -572,7 +535,7 @@
                         <ul class="list-unstyled mb-0">
                             <li>
                                 <input type="checkbox" id="check" name="check">
-                                <span>Quis autem vel eum iure reprehenderit rui in ea voluptate esse.</span>
+                                <span>Autoriza el tratamiento de datos, sus datos serán protegidos como lo establece la ley.</span>
                             </li>
                         </ul>
                     </div> 
@@ -580,15 +543,15 @@
             </div>
         </div>
         <div class="footer_right_shape top_bottom_shape">
-            <figure class="mb-0"><img src="./assets/images/footer_right_shape.png" alt="" class="img-fluid"></figure>
+            <figure class="mb-0"><img src="./assets/images/footer_right_shape.webp" alt="images/footer right shape" class="img-fluid"></figure>
         </div>
         <div class="footer_background_shape left_right_shape">
-            <figure class="mb-0"><img src="./assets/images/footer_background_shape.jpg" alt=""></figure>
+            <figure class="mb-0"><img src="./assets/images/footer_background_shape.webp" alt="footer background shape"></figure>
         </div>
     </div>
     <div class="bottom-portion">
         <div class="copyright col-xl-12"> 
-            <p>Copyright © 2023 immersiveai All rights reserved.</p>
+            <p>Copyright © 2023 Numeroya Todos los derechos reservados. <a href="politicas.html" title="Politicas de Privacida" target="_blank" rel="noreferrer noopener">Politicas de Privacida</a></p>
         </div>
     </div>
 </section>
@@ -603,5 +566,6 @@
 <script src="assets/js/video-section.js"></script>
 <script src="assets/js/counter.js"></script>
 <script src="assets/js/animation.js"></script>
+<script type="module" src="assets/js/sorteo.js" defer></script>
 </body>
 </html>
