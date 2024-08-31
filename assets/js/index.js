@@ -1,4 +1,4 @@
-import { setupRecaptcha, signInWithPhone, saveUsuario, getUsuarios } from './firebase.js';
+import { setupRecaptcha, signInWithPhone, saveUsuario, getUsuario } from './firebase.js';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 
 const auth = getAuth();
@@ -16,28 +16,40 @@ loginForm.addEventListener('submit', async (e) => {
   const password = loginForm['password'].value;
 
   try {
+    // Iniciar sesion con email y contrasenia
     const login = await signInWithEmailAndPassword(auth, email, password);
 
     // Guardar el accessToken
     const accessToken = login.user.accessToken;
+    
+    // Guardar Id de usuario
+    const userId = login.user.uid
 
+    // Obtener toda la informacion del usuario guardada en Firestore
+    const user = await getUsuario(userId);
+
+    // Guardar correo y userId en sessionStorage
+    sessionStorage.setItem('correo', email)
+    sessionStorage.setItem(email, userId)
+
+    // Redireccionar a la pestaña del sorteo
+    location.href = '../../about.html';
+    
+    /*
     // Obtener usuarios de Firestore
     const querySnapshot = await getUsuarios();
-
+    
     // Recorrer la lista de usuarios para obtener el ID de usuario de Firestore
     querySnapshot.forEach(doc => {
       const docFirebase = doc.data();
       if (docFirebase.email === email) {
-        console.log(docFirebase)
         const userIdFirestore = doc.id; // Obtén el ID del documento en Firestore
         sessionStorage.setItem('correo', email)
         sessionStorage.setItem(email, userIdFirestore)
-        localStorage.setItem("token", userIdFirestore)
-        console.log(localStorage)
-        // console.log(`Usuario autenticado con ID de Firestore: ${userIdFirestore}`);
-        // location.href = '../../sorteo/sorteo.html';
+        console.log(`Usuario autenticado con ID de Firestore: ${userIdFirestore}`);
+        //location.href = '../../about.html';
       }
-    });
+    }); */
   } catch (e) {
     console.error(e);
     alert('Datos incorrectos');
@@ -64,20 +76,34 @@ userForm.addEventListener('submit', async (e) => {
     const verificationCode = await showModalAndAwaitConfirmation();
 
     const result = await confirmationResult.confirm(verificationCode);
-    const user = result.user;
+    
+    const userIdPhone = result.user;
 
-    await createUserWithEmailAndPassword(auth, correo, contraseña)
-    .then(res => alert('Usuario Creado Existosamente'))
-    .catch(er => alert('El usuario ya existe'))
+    //Crear usuario en la bd Authentication con email y contrasenia
+    const createUser = await createUserWithEmailAndPassword(auth, correo, contraseña)
+    //.then(res => alert('Usuario Creado Existosamente'))
+    //.catch(er => alert('El usuario ya existe'))
 
-    await saveUsuario(user.uid, nombres, apellidos, celular, correo, contraseña, compras);
-
+    //Guardar id de usuario de la bd Authentication
+    const userId = createUser.user.uid
+    
+    //Crear usuario en Firestore con mismo id de la bd Authentication
+    await saveUsuario(userId, nombres, apellidos, celular, correo, contraseña, compras);
     alert('Registro completado y usuario guardado en Firestore');
+
     userForm.reset();
-    window.location.href = 'index.html';
-  } catch (error) {
-    console.error('Error durante la autenticación o registro:', error);
-    alert('Hubo un error al registrar el usuario. Inténtalo de nuevo.');
+    
+    window.location.href = 'index.html'
+  
+  }catch(error) {
+    //if para verificar si el error corresponde a que un usuario ya existe la bd Authentication
+    if (error.toString().substring(32, 57) === 'auth/email-already-in-use'){
+      alert('El usuario ya existe')
+    }else{
+      // Los demas errores que pueden generarse durante la creacion del usuario
+      console.error('Error durante la autenticación o registro:', error);
+      alert('Hubo un error al registrar el usuario. Inténtalo de nuevo.');
+    }
   }
 });
 

@@ -1,4 +1,4 @@
-// import {getUsuario, updateUsuario} from './firebase.js'
+import {getUsuario, updateUsuario} from './firebase.js'
 
 //Función para generar los numeros de la loteria
 function generarNumerosLoteria(cantidad, maximo) {
@@ -42,41 +42,42 @@ const numSerieString = String(numeroSerie).padStart(3, '0')
 serieElement.textContent = 'SERIE ' + numSerieString;
 loteriaContainer.appendChild(serieElement);
 
-// //Id de usuario de firestore
-// const usuarioIdFirestore = '282VZKYXygFHWdmYo0nD'
+// Obtener id de usuario firestore desde localStorage
+const emailUsuario = sessionStorage.getItem('correo')
+const userId = sessionStorage.getItem(emailUsuario)
 
-// //Obtener documento de firestore correspondiente al usuario que esta jugando la loteria
-// const usuario = await getUsuario(usuarioIdFirestore);
+// Obtener documento de firestore correspondiente al usuario que esta jugando la loteria
+const usuario = await getUsuario(userId);
 
 // //Separar datos individuales del usuario para operar con ellos mas adelante
-// let compras = usuario._document.data.value.mapValue.fields.compras.arrayValue.values
-// const email = usuario._document.data.value.mapValue.fields.email.stringValue
-// const lastName = usuario._document.data.value.mapValue.fields.lastName.stringValue
-// const name = usuario._document.data.value.mapValue.fields.name.stringValue
-// const phone = usuario._document.data.value.mapValue.fields.phone.stringValue
+let compras = usuario._document.data.value.mapValue.fields.compras.arrayValue.values
+const email = usuario._document.data.value.mapValue.fields.email.stringValue
+const lastName = usuario._document.data.value.mapValue.fields.lastName.stringValue
+const name = usuario._document.data.value.mapValue.fields.name.stringValue
+const phone = usuario._document.data.value.mapValue.fields.phone.stringValue
 
-// //Recopilar en un array las compras guardadas en firestore
-// let comprasActualizado = []
-// if(compras){
-//     compras.forEach(data => {
-//         comprasActualizado.push({
-//             numero: data.mapValue.fields.numero.stringValue,
-//             serie:data.mapValue.fields.serie.stringValue
-//         })
-//     })   
-// }
+// Recopilar en un array las compras guardadas en firestore
+let comprasActualizado = []
+if(compras){
+     compras.forEach(data => {
+         comprasActualizado.push({
+             numero: data.mapValue.fields.numero.stringValue,
+             serie: data.mapValue.fields.serie.stringValue
+         })
+     })   
+ }
 
-// //Agregar la ultima compra al arreglo
-// comprasActualizado.push({
-//     numero: resultado,
-//     serie: numSerieString
-// }) 
+// Agregar la ultima compra al array
+ comprasActualizado.push({
+     numero: resultado,
+     serie: numSerieString
+ }) 
 
-// //Actualizar el usuario con la nueva compra en firestore
-// await updateUsuario(usuarioIdFirestore, {
-//     compras: comprasActualizado,
-//     email,
-//     lastName,
-//     name,
-//     phone
-// })
+// Actualizar el usuario con la nueva compra en firestore
+ await updateUsuario(userId, {
+     compras: comprasActualizado,
+     email,
+     lastName,
+     name,
+     phone
+ })
