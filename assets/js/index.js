@@ -1,9 +1,10 @@
 import { setupRecaptcha, signInWithPhone, saveUsuario, getUsuario } from './firebase.js';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 
 const auth = getAuth();
 const userForm = document.getElementById('register-form');
 const loginForm = document.getElementById('login-form');
+const forgotPassword = document.getElementById('forgotPassword');
 
 document.getElementById('closeModalUsuario').addEventListener('click', closeModal);
 document.getElementById('overlay').addEventListener('click', closeModal);
@@ -11,7 +12,7 @@ document.getElementById('overlay').addEventListener('click', closeModal);
 // Evento de inicio de sesión
 loginForm.addEventListener('submit', async (e) => {
   e.preventDefault();
-  
+
   const email = loginForm['email'].value;
   const password = loginForm['password'].value;
 
@@ -21,7 +22,7 @@ loginForm.addEventListener('submit', async (e) => {
 
     // Guardar el accessToken
     const accessToken = login.user.accessToken;
-    
+
     // Guardar Id de usuario
     const userId = login.user.uid
 
@@ -81,8 +82,6 @@ userForm.addEventListener('submit', async (e) => {
 
     //Crear usuario en la bd Authentication con email y contrasenia
     const createUser = await createUserWithEmailAndPassword(auth, correo, contraseña)
-    //.then(res => alert('Usuario Creado Existosamente'))
-    //.catch(er => alert('El usuario ya existe'))
 
     //Guardar id de usuario de la bd Authentication
     const userId = createUser.user.uid
@@ -97,13 +96,26 @@ userForm.addEventListener('submit', async (e) => {
   
   }catch(error) {
     //if para verificar si el error corresponde a que un usuario ya existe la bd Authentication
-    if (error.toString().substring(32, 57) === 'auth/email-already-in-use'){
+    if (error.code === 'auth/email-already-in-use'){
       alert('El usuario ya existe')
     }else{
       // Los demas errores que pueden generarse durante la creacion del usuario
       console.error('Error durante la autenticación o registro:', error);
       alert('Hubo un error al registrar el usuario. Inténtalo de nuevo.');
     }
+  }
+});
+
+// Evento para recuperar contraseña
+forgotPassword.addEventListener('click', async (e) => {
+  e.preventDefault();
+
+  try {
+    sendPasswordResetEmail(auth, email)
+
+  }catch(error) {
+    console.log(error.code)
+    console.log(error.message)
   }
 });
 
